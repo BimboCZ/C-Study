@@ -16,9 +16,9 @@ namespace Revision
             Application.EnableVisualStyles();
             Application.Run(new TestForm());
 
-            //Complex a = new Complex(4, 8);
-            //Complex b = new Complex(3, 9);
-            //Complex c = b + a;
+            Complex a = new Complex(4, 8);
+            Complex b = new Complex(3, 9);
+            Complex c = b + a;
         }
     }
 }
