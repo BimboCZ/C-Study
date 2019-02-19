@@ -20,29 +20,24 @@ namespace WindForms
 
         public static DataTable GetTable()
         {
-            String conString = ConfigurationManager.ConnectionStrings["WebDev"].ConnectionString;
 
-            SqlConnection con = null;
-            // Commands and DataTables
-            try
-            {
-                con = new SqlConnection(conString);
-
-                con.Open();
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-            SqlCommand com = new SqlCommand("Select * from sbj_subject", con);
             DataTable localTable = new DataTable();
+            // Commands and DataTables
+            string conString = @"Data Source=webdev.spsejecna.cz,11433;Initial Catalog=C3B;User ID=C3B;Password=Developers3*";
+
+            //String conString = ConfigurationManager.ConnectionStrings["WebDev"].ConnectionString;
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+            MessageBox.Show("U HAVE BEEN CONNECTED BLIAT");
+            SqlCommand com = new SqlCommand("Select * from sbj_subject", con);
+
             SqlDataAdapter da = new SqlDataAdapter
             {
                 //Adding Select command to DataAdapter
                 SelectCommand = com
             };
             da.Fill(localTable);// Fill to localTable
+
 
             return localTable;
         }
@@ -105,7 +100,7 @@ namespace WindForms
             return "";
         }
 
-        static void Connect()
+        public static void Connect()
         {
             SqlConnectionStringBuilder connString = new SqlConnectionStringBuilder();
             connString.DataSource = "webdev.spsejecna.cz, 1143";

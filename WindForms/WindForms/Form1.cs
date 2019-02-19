@@ -27,6 +27,10 @@ namespace WindForms
             //Načtu si data z databáze
             dataSubject = DataAdapter_subject.GetTable();
 
+            BindingSource datZdroj = new BindingSource(dataSubject, null);
+
+            textBox2.DataBindings.Add("Text", dataSubject, "last_name");
+
             //Přiřadím datovou tabulku ke gridu
             dataGridView1.DataSource = dataSubject;
         }
