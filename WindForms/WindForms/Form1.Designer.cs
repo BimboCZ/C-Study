@@ -33,10 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Game = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Detail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -105,44 +101,11 @@
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.first_name,
-            this.Column2,
-            this.Game,
-            this.Detail});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(404, 263);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // first_name
-            // 
-            this.first_name.HeaderText = "Name";
-            this.first_name.MinimumWidth = 50;
-            this.first_name.Name = "first_name";
-            this.first_name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.first_name.ToolTipText = "Type name";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "is_member";
-            this.Column2.HeaderText = "Is member";
-            this.Column2.MinimumWidth = 80;
-            this.Column2.Name = "Column2";
-            // 
-            // Game
-            // 
-            this.Game.HeaderText = "Game";
-            this.Game.Name = "Game";
-            // 
-            // Detail
-            // 
-            this.Detail.HeaderText = "Detail";
-            this.Detail.Name = "Detail";
-            this.Detail.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Detail.Text = "...";
             // 
             // tabPage2
             // 
@@ -239,10 +202,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Game;
-        private System.Windows.Forms.DataGridViewButtonColumn Detail;
     }
 }
 

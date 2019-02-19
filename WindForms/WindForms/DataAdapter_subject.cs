@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace WindForms
 {
@@ -15,19 +18,83 @@ namespace WindForms
             return "";
         }
 
-        public static string GetName(Int32 id)
+        public static DataTable GetTable()
+        {
+            String conString = ConfigurationManager.ConnectionStrings["WebDev"].ConnectionString;
+
+            SqlConnection con = null;
+            // Commands and DataTables
+            try
+            {
+                con = new SqlConnection(conString);
+
+                con.Open();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            SqlCommand com = new SqlCommand("Select * from sbj_subject", con);
+            DataTable localTable = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter
+            {
+                //Adding Select command to DataAdapter
+                SelectCommand = com
+            };
+            da.Fill(localTable);// Fill to localTable
+
+            return localTable;
+        }
+
+        public static string GetLastName(Int32 id)
         {
             Connect();
+            // Commands and DataTables
             SqlCommand com = new SqlCommand("Select * from table where id =" + id);
+            SqlCommand comSelect = new SqlCommand("Select * from table where id =" + id);
+            DataTable localTable = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
             // through parameter, value
             com.Parameters.AddWithValue("@id", id);
 
             // through parametr, value data type
-            com.Parameters.Add("@type",SqlDbType.SmallInt);
+            com.Parameters.Add("@type", SqlDbType.SmallInt);
             com.Parameters["@type"].Value = 2;
 
             //Call function
             string output = Convert.ToString(com.ExecuteScalar());
+
+            //Adding Select command to DataAdapter
+            da.SelectCommand = comSelect;
+            da.Fill(localTable);// Fill to localTable
+
+            return "Name: " + output;
+        }
+
+        public static string GetLastName(string id)
+        {
+            Connect();
+            // Commands and DataTables
+            SqlCommand com = new SqlCommand("Select * from table where id =" + id);
+            SqlCommand comSelect = new SqlCommand("Select * from table where id =" + id);
+            DataTable localTable = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            // through parameter, value
+            com.Parameters.AddWithValue("@id", id);
+
+            // through parametr, value data type
+            com.Parameters.Add("@type", SqlDbType.SmallInt);
+            com.Parameters["@type"].Value = 2;
+
+            //Call function
+            string output = Convert.ToString(com.ExecuteScalar());
+
+            //Adding Select command to DataAdapter
+            da.SelectCommand = comSelect;
+            da.Fill(localTable);// Fill to localTable
 
             return "Name: " + output;
         }
@@ -35,18 +102,16 @@ namespace WindForms
         public static string Command(string command)
         {
             Connect();
-            
-            
             return "";
         }
 
         static void Connect()
         {
             SqlConnectionStringBuilder connString = new SqlConnectionStringBuilder();
-            connString.DataSource = "webdev.spsejecna.cz,11433";
-            connString.InitialCatalog = "dinh";
-            connString.UserID = "dinh";
-            connString.Password = "pvDinh2019";
+            connString.DataSource = "webdev.spsejecna.cz, 1143";
+            connString.InitialCatalog = "C3B";
+            connString.UserID = "C3B";
+            connString.Password = "Developers3*";
             SqlConnection con = new SqlConnection(connString.ConnectionString);
             con.Open();
         }
