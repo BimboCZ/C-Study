@@ -11,7 +11,6 @@ namespace LinQ
         static void Main(string[] args)
         {
             Pohori p = new Pohori("Alpy");
-
             p.PridejHoru("Matterhorn", 4478);
             p.PridejHoru("dawd", 2465);
             p.PridejHoru("hhfawdad", 3217);
