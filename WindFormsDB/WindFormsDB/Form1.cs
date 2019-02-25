@@ -15,6 +15,12 @@ namespace WindFormsDB
         public Form1()
         {
             InitializeComponent();
+            LoadDataGrid();
+        }
+
+        private void LoadDataGrid()
+        {
+            dataGridView1.AutoGenerateColumns = false;
         }
     }
 }
