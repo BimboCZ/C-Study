@@ -28,7 +28,7 @@ namespace WindForms
             //String conString = ConfigurationManager.ConnectionStrings["WebDev"].ConnectionString;
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-            MessageBox.Show("U HAVE BEEN CONNECTED BLIAT");
+
             SqlCommand com = new SqlCommand("Select * from sbj_subject", con);
 
             SqlDataAdapter da = new SqlDataAdapter
@@ -92,12 +92,6 @@ namespace WindForms
             da.Fill(localTable);// Fill to localTable
 
             return "Name: " + output;
-        }
-
-        public static string Command(string command)
-        {
-            Connect();
-            return "";
         }
 
         public static void Connect()
