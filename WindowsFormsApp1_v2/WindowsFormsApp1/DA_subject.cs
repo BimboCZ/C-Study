@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         public static string GetName(Int32 id)
         {
             SqlConnectionStringBuilder connString = new SqlConnectionStringBuilder();
-            connString.DataSource = "webdev.spsejecna.cz,11433";
+            connString.DataSource = "";
             connString.InitialCatalog = "C3B";
             connString.UserID = "C3B";
             connString.Password = "Developers3*";
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             return returnValue;
         }
 
-        public static DataTable GetTable(Int32 id)
+        public static DataTable GetTable()
         {
             //Vytvořím si lokální tabulku
             DataTable lokalniTabulka = new DataTable();
@@ -71,9 +71,7 @@ namespace WindowsFormsApp1
             {
                 throw ex;
             }
-
             return lokalniTabulka;
-            
         }
     }
 }

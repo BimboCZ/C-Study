@@ -16,22 +16,20 @@ namespace WindFormsDB
         public Form1()
         {
             InitializeComponent();
-            LoadDataGrid();
+            dataGridView1.AutoGenerateColumns = false;
         }
 
-        private void LoadDataGrid()
+        private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoGenerateColumns = false;
-
             //Načtu si data z databáze
             dataSubject = DB_Adapter.GetTable();
 
             BindingSource datZdroj = new BindingSource(dataSubject, null);
 
-            textBox1.DataBindings.Add("Text", dataSubject, "last_name");
+            textBox1.DataBindings.Add("Text", datZdroj, "last_name");
 
             //Přiřadím datovou tabulku ke gridu
-            dataGridView1.DataSource = dataSubject;
+            dataGridView1.DataSource = datZdroj;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
             LastName_Value.Text = name;
 
             //Načtu si data z databáze
-            dataSubject = DA_subject.GetTable(8);
+            dataSubject = DA_subject.GetTable();
 
             //
             BindingSource datovyZdroj = new BindingSource(dataSubject, null);
